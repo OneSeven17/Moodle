@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Moodle</h1>
+            <form>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <input name="search" class="form-control" type="search" value="{{search}}" background-color:
+                                   #7>
+                        </div>
+                    </div>
+                </form>
+            </form>
+            <ul class="list-group mt-3"> <!--  mt-x добавляет вертикальный отступ -->
+                <div class="row">
+                    {% for movie in movies %}
+                    <div class="col-sm-6">
+                        <div class="card mt-2" style="width: 12rem;">
+                            <img src={{ movie.poster }} class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <a href="{{ url_for('movie_details', id=movie.id) }}"><h5 class="card-title">{{movie.name}}</h5></a>
+                                <p class="card-text">(Genre: {{movie.genre}})</p>
+                                (Tags: {{movie.tags}})
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </ul>
+
+            {% if not movies %}
+            <p>No movies, try again later</p>
+            {% endif %}
+            <a href="{{ url_for('movie_details', id='new') }}" class="btn btn-primary">Add New Movie</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+INSERT INTO movies (name, category, genre, tags, poster) VALUES
+('You Don''t Mess with the Zohan', 'movie', 'comedy', 'laught, sandler, shneider', 'https://m.media-amazon.com/images/M/MV5BMzE2MzEzNDc5M15BMl5BanBnXkFtZTcwMzYxOTA3MQ@@._V1_.jpg'),
+('Rick and Morty', 'animation', 'comedy', 'laught, sarcasm, satire', 'https://m.media-amazon.com/images/M/MV5BMjRiNDRhNGUtMzRkZi00MThlLTg0ZDMtNjc5YzFjYmFjMmM4XkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg'),
+('Fight Club', 'movie', 'drama', 'fighting, sarcasm, dark humor', 'https://m.media-amazon.com/images/M/MV5BMjJmYTNkNmItYjYyZC00MGUxLWJhNWMtZDY4Nzc1MDAwMzU5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,676,1000_AL_.jpg'),
+('Interstellar', 'movie', 'sci-fi', 'space travel, adventure, catastrophe', 'https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_SX675_AL_.jpg'),
+('Matrix', 'movie', 'action', 'fighting, guns, post apocalypse', 'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,665,1000_AL_.jpg');

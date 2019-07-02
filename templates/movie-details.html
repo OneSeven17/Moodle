@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{{ movie.name }}</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card mt-2" style="width: 18rem;">
+                <img src={{movie.poster}} class="card-img-top" alt="...">
+                <h1>Name: {{ movie.name }}</h1>
+                <p>Category: {{ movie.category }}</p>
+                <p>Genre: {{ movie.genre }}</p>
+                <p>Tags: {{ movie.tags }}</p>
+                <p>ID: {{ movie.id }}</p>
+            </div>
+            <div class="mt-2">
+            <form action="{{ url_for('movie_remove', id=movie.id) }}" class="btn btn-primary" method="post">
+                <button>Remove</button>
+            </form>
+            </div>
+            <div class="mt-2">
+                <form action="{{ url_for('movie_edit', id=movie.id) }}" class="btn btn-primary" method="post">
+                <button>Movie Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

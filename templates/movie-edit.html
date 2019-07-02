@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie edit</title>
+</head>
+<body>
+<form action="{{ url_for('movie_save', id=movie.id) }}" method="post">
+    <input type="text", value="{{ movie.name }}" name="name" placeholder="name" required>
+    <input type="text", value="{{ movie.category }}" name="category" placeholder = "category" required>
+    <input type="text", value="{{ movie.genre }}" name="genre" placeholder="genre" required>
+    <input type="text", value="{{ movie.tags }}" name="tags" placeholder="tags" required>
+    <input type="text", value="{{ movie.poster }}" name="poster" placeholder="poster" required>
+    <button>Save</button>
+</form>
+</body>
+</html>
