@@ -14,12 +14,12 @@ def index():
     movies = db.get_movies(DATABASE_URL)
     return render_template('index.html', movies=movies)
 
-@app.route('/<id>')
+@app.route('/<id>', methods=['GET', 'POST'])
 def movie_details(id):
     movie = db.search_movie_by_id(DATABASE_URL, id)
     return render_template('movie-details.html', movie=movie)
 
-@app.route('/<id>/edit')
+@app.route('/<id>/edit', methods=['POST'])
 def movie_edit(id):
     movie = db.search_movie_by_id(DATABASE_URL, id)
     return render_template('movie-edit.html', movie=movie)

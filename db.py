@@ -42,7 +42,7 @@ def search_movie_by_id(db_url, movie_id):
     movie = db.cursor().execute(
         'SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE id = :id',
         {'id': movie_id}
-    )
+    ).fetchone()
     db.close()
     return movie
 
