@@ -17,9 +17,9 @@ def index():
 
 @app.route('/search', methods=['POST'])
 def movie_search():
-    search = request.form['search']
+    print(request.form.get("search"))
+    search = request.form.get("search")
     results = db.search_movies(DATABASE_URL, search)
-    print(search)
     return render_template('movie-search.html', movies=results, search=search)
 
 

@@ -30,11 +30,8 @@ def add_movie(db_url, name, category, genre, tags, poster):
     db.cursor().execute(sql, (name, category, genre, tags, poster))
     db.commit()
     movie_id = db.cursor().execute('SELECT MAX(id) from movies;').fetchall()
-    print(movie_id)
     db.close()
-    return movie_id
-
-
+    return movie_id[0][0]
 
 def update_movie(db_url, movie_id, name, category, genre, tags, poster):
     db = open_db(db_url)
@@ -62,8 +59,9 @@ def search_movies(db_url, search):
     #     {'name': search}
     # ).fetchmany()
 
-    searched_movies = db.cursor().execute('SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name=?', search)
-    movies = searched_movies.fetchone()
+    searched_movies = db.cursor().execute('''SELECT id, name, category, genre, tags, poster, 
+                                            likes FROM movies WHERE name LIKE :id''', {'id': '%' + search + '%'})
+    movies = searched_movies.fetchall()
     # sql_search = '''SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = "Matrix" '''
     # db.cursor().execute(sql_search, search)
     # movies = db.cursor().fetchall()
