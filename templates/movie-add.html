@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie add</title>
+</head>
+<body>
+<form action="{{ url_for('movie_add') }}" method="post">
+    <input type="text", name="name" placeholder="name" required>
+    <input type="text", name="category" placeholder = "category" required>
+    <input type="text", name="genre" placeholder="genre" required>
+    <input type="text", name="tags" placeholder="tags" required>
+    <input type="text", name="poster" placeholder="poster" required>
+    <button>Save</button>
+</form>
+</body>
+</html>

@@ -14,20 +14,8 @@
 <div class="container">
     <div class="row">
 <!--        <div class="col">-->
-            <h1>Moodle</h1>
-            <form>
-                <form action="{{ url_for('movie_search') }}" class="btn btn-primary" method="post">
-                    <div class="form-row">
-                        <div class="col">
-                            <input name="search" class="form-control" type="search" value="{{search}}" background-color:
-                                   #7>
-                        </div>
-                        <div class="col">
-                            <button>Search</button>
-                        <div>
-                    </div>
-                </form>
-            </form>
+            <h1>Founded</h1>
+
     </div>
     <div class="row">
             <ul class="list-group mt-3">
@@ -50,7 +38,7 @@
             {% if not movies %}
             <p>No movies, try again later</p>
             {% endif %}
-            <a href="{{ url_for('movie_new') }}" class="btn btn-primary">Add New Movie</a>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Go to homepage</a>
     </div>
 <!--    </div>-->
 </div>
