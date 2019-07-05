@@ -13,34 +13,37 @@
 <body>
 <div class="container">
     <div class="row">
-<!--        <div class="col">-->
-            <h1>Founded</h1>
+        <!--        <div class="col">-->
+        <h1>Founded</h1>
 
     </div>
     <div class="row">
-            <ul class="list-group mt-3">
-                <div class="row">
-                    {% for movie in movies %}
-                    <div class="col-sm-6">
-                        <div class="card mt-2" style="width: 12rem;">
-                            <img src={{ movie.poster }} class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <a href="{{ url_for('movie_details', id=movie.id) }}"><h5 class="card-title">{{movie.name}}</h5></a>
-                                <p class="card-text">(Genre: {{movie.genre}})</p>
-                                (Tags: {{movie.tags}})
-                            </div>
+        <ul class="list-group mt-3">
+            <div class="row">
+                {% for movie in movies %}
+                <div class="col-sm-6">
+                    <div class="card mt-2" style="width: 12rem;">
+                        <img src={{ movie.poster }} class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="{{ url_for('movie_details', id=movie.id) }}"><h5 class="card-title">
+                                {{movie.name}}</h5></a>
+                            <p class="card-text">(Genre: {{movie.genre}})</p>
+                            (Tags: {{movie.tags}})
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
-            </ul>
+                {% endfor %}
+            </div>
+        </ul>
 
-            {% if not movies %}
-            <p>No movies, try again later</p>
-            {% endif %}
-            <a href="{{ url_for('index') }}" class="btn btn-primary">Go to homepage</a>
+        {% if not movies %}
+        <p>No movies, try again later</p>
+        {% endif %}
     </div>
-<!--    </div>-->
+    <div class="row">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Go to homepage</a>
+    </div>
+    <!--    </div>-->
 </div>
 </body>
 </html>

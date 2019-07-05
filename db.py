@@ -9,18 +9,14 @@ def open_db(db_url):
 
 def get_movies(db_url, page=1):
     db = open_db(db_url)
-    lid = db.cursor().lastrowid
-    # lid = 0
-    # for row in db.cursor().execute('SELECT id from movies ORDER BY id'):
-    #     lid = lid + 1
-    limit = 5
+    # lid = db.cursor().lastrowid
+    limit = 10
     offset = limit * (page - 1)
     movies = db.cursor().execute(
         'SELECT id, name, category, genre, tags, poster, likes FROM movies LIMIT  :limit OFFSET  :offset',
     {'limit': limit, 'offset': offset}
     ).fetchall()
     db.close()
-    print(lid)
     return movies
 
 
@@ -53,19 +49,9 @@ def search_movie_by_id(db_url, movie_id):
 
 def search_movies(db_url, search):
     db = open_db(db_url)
-    # search_lowercased = search.strip().lower()
-    # movies = db.cursor().execute(
-    #     'SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = :name',
-    #     {'name': search}
-    # ).fetchmany()
-
     searched_movies = db.cursor().execute('''SELECT id, name, category, genre, tags, poster, 
-                                            likes FROM movies WHERE name LIKE :id''', {'id': '%' + search + '%'})
+                                            likes FROM movies WHERE name LIKE :search OR tags LIKE :search OR category LIKE :search OR genre LIKE :search''', {'search': '%' + search + '%'})
     movies = searched_movies.fetchall()
-    # sql_search = '''SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = "Matrix" '''
-    # db.cursor().execute(sql_search, search)
-    # movies = db.cursor().fetchall()
-    # print(search)
     db.close()
     return movies
 

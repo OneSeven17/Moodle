@@ -17,7 +17,6 @@ def index():
 
 @app.route('/search', methods=['POST'])
 def movie_search():
-    print(request.form.get("search"))
     search = request.form.get("search")
     results = db.search_movies(DATABASE_URL, search)
     return render_template('movie-search.html', movies=results, search=search)
@@ -26,7 +25,6 @@ def movie_search():
 @app.route('/<id>', methods=['GET', 'POST'])
 def movie_details(id):
     movie = db.search_movie_by_id(DATABASE_URL, id)
-    print(id)
     return render_template('movie-details.html', movie=movie)
 
 @app.route('/<id>/edit', methods=['POST'])
@@ -59,7 +57,6 @@ def movie_add():
     tags = request.form['tags']
     poster = request.form['poster']
     movie = db.add_movie(DATABASE_URL, name, category, genre, tags, poster)
-    # return render_template('movie-details.html', movie=movie)
     return redirect(url_for('movie_details', id=movie))
 
 @app.route('/<id>/remove', methods=['POST'])
