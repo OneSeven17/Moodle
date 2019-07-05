@@ -16,7 +16,7 @@
 <!--        <div class="col">-->
             <h1>Moodle</h1>
             <form>
-                <form action="{{ url_for('movie_search') }}" class="btn btn-primary" method="post">
+                <form action="{{ url_for('movie_search', search=search) }}" class="btn btn-primary" method="post">
                     <div class="form-row">
                         <div class="col">
                             <input name="search" class="form-control" type="search" value="{{search}}" background-color:

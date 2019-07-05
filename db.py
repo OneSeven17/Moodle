@@ -26,15 +26,13 @@ def get_movies(db_url, page=1):
 
 def add_movie(db_url, name, category, genre, tags, poster):
     db = open_db(db_url)
-    lid = '''SELECT id FROM movies WHERE rowid=last_insert_rowid()'''
-    # vid = lid + 1
-    sql = '''INSERT INTO movies(id, name, category, genre, tags, poster) VALUES (?, ?, ?, ?, ?, ?)'''
-    # lid = db.cursor().lastrowid
-    # print(lid)
-    db.cursor().execute(sql, (int(lid + 1), name, category, genre, tags, poster))
+    sql = '''INSERT INTO movies(name, category, genre, tags, poster) VALUES (?, ?, ?, ?, ?)'''
+    db.cursor().execute(sql, (name, category, genre, tags, poster))
     db.commit()
+    movie_id = db.cursor().execute('SELECT MAX(id) from movies;').fetchall()
+    print(movie_id)
     db.close()
-    return lid
+    return movie_id
 
 
 
@@ -59,16 +57,17 @@ def search_movie_by_id(db_url, movie_id):
 def search_movies(db_url, search):
     db = open_db(db_url)
     # search_lowercased = search.strip().lower()
-    # movie = db.cursor().execute(
-    #     'SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = :search OR category = :search OR genre = :search OR tags = :search',
-    #     {'name': name, 'category': category, }
+    # movies = db.cursor().execute(
+    #     'SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = :name',
+    #     {'name': search}
     # ).fetchmany()
 
-
-    sql_search = 'SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = :search'
-    db.cursor().execute(sql_search, search)
-    movies = db.cursor().fetchall()
-    print(search)
+    searched_movies = db.cursor().execute('SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name=?', search)
+    movies = searched_movies.fetchone()
+    # sql_search = '''SELECT id, name, category, genre, tags, poster, likes FROM movies WHERE name = "Matrix" '''
+    # db.cursor().execute(sql_search, search)
+    # movies = db.cursor().fetchall()
+    # print(search)
     db.close()
     return movies
 

@@ -20,12 +20,13 @@ def movie_search():
     search = request.form['search']
     results = db.search_movies(DATABASE_URL, search)
     print(search)
-    return render_template('index.html', movies=results, search=search)
+    return render_template('movie-search.html', movies=results, search=search)
 
 
 @app.route('/<id>', methods=['GET', 'POST'])
 def movie_details(id):
     movie = db.search_movie_by_id(DATABASE_URL, id)
+    print(id)
     return render_template('movie-details.html', movie=movie)
 
 @app.route('/<id>/edit', methods=['POST'])
