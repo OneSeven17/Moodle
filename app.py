@@ -62,7 +62,7 @@ def start():
         db.remove_movie_by_id(DATABASE_URL, id)
         movies = db.get_movies(DATABASE_URL)
         return render_template('index.html', movies=movies)
-        # return redirect(url_for('index'))
+
 
     print(os.getenv('APP_ENV'))
     print(os.getenv('PORT'))
