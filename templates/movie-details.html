@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col">
             <div class="card mt-2" style="width: 18rem;">
-                <img src={{movie.poster}} class="card-img-top" alt="...">
+                <img src={{ movie.poster }} class="card-img-top" alt="...">
                 <h1>Name: {{ movie.name }}</h1>
                 <p>Category: {{ movie.category }}</p>
                 <p>Genre: {{ movie.genre }}</p>
@@ -31,14 +31,12 @@
                     <button>Movie Edit</button>
                 </form>
             </div>
-
+            <div class="mt-2">
+                <a href="{{ url_for('index') }}" class="btn btn-primary"><button>Go to homepage</button></a>
+            </div>
         </div>
     </div>
 </div>
-<div class="mt-2">
-    <form action="{{ url_for('index') }}" class="btn btn-primary" method="post">
-        <button>Go to homepage</button>
-    </form>
-</div>
+
 </body>
 </html>

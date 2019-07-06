@@ -1,4 +1,4 @@
--- drop table movies
+drop table movies
 
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
