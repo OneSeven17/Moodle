@@ -7,7 +7,6 @@ import db
 
 
 def start():
-
     DATABASE_URL = 'db.sqlite'
 
     app = Flask(__name__)
@@ -63,7 +62,6 @@ def start():
         movies = db.get_movies(DATABASE_URL)
         return render_template('index.html', movies=movies)
 
-
     print(os.getenv('APP_ENV'))
     print(os.getenv('PORT'))
     if os.getenv('APP_ENV') == 'PROD' and os.getenv('PORT'):
@@ -71,6 +69,6 @@ def start():
     else:
         app.run(port=9876, debug=True)
 
+
 if __name__ == '__main__':
     start()
-
