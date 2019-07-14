@@ -62,6 +62,12 @@ def start():
         movies = db.get_movies(DATABASE_URL)
         return render_template('index.html', movies=movies)
 
+    @app.route('/search', methods=['POST'])
+    def movies_search_by_tags():
+        search = request.form.get("action")
+        results = db.search_movies_by_tags(DATABASE_URL, search)
+        return render_template('movie-search.html', movies=results, search=search)
+
     print(os.getenv('APP_ENV'))
     print(os.getenv('PORT'))
     if os.getenv('APP_ENV') == 'PROD' and os.getenv('PORT'):

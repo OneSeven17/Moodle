@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Moodle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -13,45 +13,46 @@
 <body>
 <div class="container">
     <div class="row">
-<!--        <div class="col">-->
-            <h1>Moodle</h1>
-    </div>
-        <div class="row">
-            <form action="/search" class="btn btn-primary" method="post">
-                <div class="form-row">
-                    <div class="col">
-                        <input name="search" class="form-control" type="search" value="{{search}}">
-                    </div>
-                    <div class="col">
-                       <input type="submit" value="Search">
-                    </div>
-                </div>
-            </form>
+        <!--        <div class="col">-->
+        <h1>Moodle</h1>
     </div>
     <div class="row">
-            <ul class="list-group mt-3">
-                <div class="row">
-                    {% for movie in movies %}
+        <form action="search" class="btn btn-primary" method="post">
+            <div class="form-row">
+                <div class="col">
+                    <input name="search" class="form-control" type="search" value="{{ search }}" size="80">
+                </div>
+                <div class="col">
+                    <input type="submit" value="Search">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <ul class="list-group mt-3">
+            <div class="row">
+                {% for movie in movies %}
                     <div class="col-sm-6">
                         <div class="card mt-2" style="width: 12rem;">
                             <img src={{ movie.poster }} class="card-img-top" alt="...">
                             <div class="card-body">
-                                <a href="{{ url_for('movie_details', id=movie.id) }}"><h5 class="card-title">{{movie.name}}</h5></a>
-                                <p class="card-text">(Genre: {{movie.genre}})</p>
-                                (Tags: {{movie.tags}})
+                                <a href="{{ url_for('movie_details', id=movie.id) }}"><h5
+                                        class="card-title">{{ movie.name }}</h5></a>
+                                <p class="card-text">(Genre: {{ movie.genre }})</p>
+                                (Tags: {{ movie.tags }})
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </ul>
+                {% endfor %}
+            </div>
+        </ul>
 
-            {% if not movies %}
+        {% if not movies %}
             <p>No movies, try again later</p>
-            {% endif %}
-            <a href="{{ url_for('movie_new') }}" class="btn btn-primary">Add New Movie</a>
+        {% endif %}
+        <a href="{{ url_for('movie_new') }}" class="btn btn-primary">Add New Movie</a>
     </div>
-<!--    </div>-->
+    <!--    </div>-->
 </div>
 </body>
 </html>

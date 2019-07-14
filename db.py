@@ -55,6 +55,14 @@ def search_movies(db_url, search):
     db.close()
     return movies
 
+def search_movies_by_tags(db_url, search):
+    db = open_db(db_url)
+    searched_movies = db.cursor().execute('''SELECT id, name, category, genre, tags, poster, 
+                                            likes FROM movies WHERE tags LIKE :search''', {'search': '%' + search + '%'})
+    movies = searched_movies.fetchall()
+    db.close()
+    return movies
+
 def remove_movie_by_id(db_url, movie_id):
     db = open_db(db_url)
     db.cursor().execute(

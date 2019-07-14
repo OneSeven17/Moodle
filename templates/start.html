@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Choose your Moodle</title>
+    <style>
+        body {
+            background: #000 url(fon.jpg); /* Фоновый цвет и фоновый рисунок*/
+            color: #fff; /*Цвет текста на странице*/
+            background-attachment: fixed; /* Фон страницы фиксируется */
+            background-repeat: repeat-x; /* Изображение повторяется по горизонтали */
+        }
+    </style>
+</head>
+<body>
+<audio src="intro.mp3" autoplay controls>
+    Тег audio не поддерживается вашим браузером. Необходимо обновить браузер!
+</audio>
+<div style="position:relative;">
+    <div style="margin: 400px 0 10px 1000px; display:block; position:fixed;">
+        <button href="{{ url_for('movies_search_by_tags') }}" style="width:180px;height:100px" title="action">Action
+        </button>
+    </div>
+</div>
+<div style="position:relative;">
+    <div style="margin: 400px 0 10px 800px; display:block; position:fixed;">
+        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="comedy">Comedy</button>
+    </div>
+</div>
+<div style="position:relative;">
+    <div style="margin: 400px 0 10px 600px; display:block; position:fixed;">
+        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="scary">Scary</button>
+    </div>
+</div>
+<div style="position:relative;">
+    <div style="margin: 400px 0 10px 400px; display:block; position:fixed;">
+        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="sci-fi">Sci-Fi</button>
+    </div>
+</div>
+<div style="position:relative;">
+    <div style="margin: 400px 0 10px 200px; display:block; position:fixed;">
+        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="animation">Animation</button>
+    </div>
+</div>
+<div style="position:relative;">
+    <div style="margin: 400px 0 10px 0; display:block; position:fixed;">
+        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="all movies">All movies</button>
+    </div>
+</div>
+<script>function upload() {
+    var formData = new FormData();
+    var target = //Upload-Server URL formData.append("file", document.getElementById("file").files[0]); var xhr = new XMLHttpRequest(); var eventSource = xhr.upload || xhr; eventSource.addEventListener("progress", function(e){ var current = e.loaded || e.position ; var total = e.total || e.totalSize; var percant = parseInt((current/total)*100, 10); // DO whatever you want with progress }); xhr.open("POST", target, true); xhr.send(formData); xhr.onload = function() { if (this.status === 200) // SUCCESS };</script>
+function upload() { var formData = new FormData(); var target = //Upload-Server URL formData.append("file",
+
+</body>
+
+</html>
