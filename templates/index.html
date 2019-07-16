@@ -33,13 +33,13 @@
             <div class="row">
                 {% for movie in movies %}
                     <div class="col-sm-6">
-                        <div class="card mt-2" style="width: 12rem;">
+                        <div class="card mt-2" style="width: 20rem;">
                             <img src={{ movie.poster }} class="card-img-top" alt="...">
                             <div class="card-body">
-                                <a href="{{ url_for('movie_details', id=movie.id) }}"><h5
-                                        class="card-title">{{ movie.name }}</h5></a>
-                                <p class="card-text">(Genre: {{ movie.genre }})</p>
-                                (Tags: {{ movie.tags }})
+                                <a href="{{ url_for('movie_details', id=movie.id) }}">
+                                    <h5 class="card-title">{{ movie.name }}</h5></a>
+                                <p class="card-text">Genre: {{ movie.genre }}</p>
+                                <p class="card-text">Tags: {{ movie.tags }}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,9 @@
         {% if not movies %}
             <p>No movies, try again later</p>
         {% endif %}
+    <div class="mt-2">
         <a href="{{ url_for('movie_new') }}" class="btn btn-primary">Add New Movie</a>
+    </div>
     </div>
     <!--    </div>-->
 </div>

@@ -9,12 +9,20 @@
 </head>
 <body>
 <form action="{{ url_for('movie_add') }}" method="post">
-    <input type="text", name="name" placeholder="name" required>
-    <input type="text", name="category" placeholder = "category" required>
-    <input type="text", name="genre" placeholder="genre" required>
-    <input type="text", name="tags" placeholder="tags" required>
-    <input type="text", name="poster" placeholder="poster" required>
-    <button>Save</button>
+    <div class="card mt-2" style="width: 18rem;">
+        <input type="text" , name="name" placeholder="name" required>
+        <input type="text" , name="category" placeholder="category" required>
+        <input type="text" , name="genre" placeholder="genre" required>
+        <input type="text" , name="tags" placeholder="tags" required>
+        <input type="text" , name="poster" placeholder="poster" required>
+        {#    <form action = "http://localhost:5000//new/add" method = "POST"#}
+        {#         enctype = "multipart/form-data">#}
+        {#         <input type = "file" name = "file" />#}
+        {#         <input type = "submit"/>#}
+        {#    </form>#}
+        <button>Save</button>
+
+    </div>
 </form>
 </body>
 </html>
