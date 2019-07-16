@@ -58,7 +58,7 @@ def search_movies(db_url, search):
 def search_movies_by_tags(db_url, search):
     db = open_db(db_url)
     searched_movies = db.cursor().execute('''SELECT id, name, category, genre, tags, poster, 
-                                            likes FROM movies WHERE tags LIKE :search''', {'search': '%' + search + '%'})
+                                            likes FROM movies WHERE tags LIKE :search ORDER BY RANDOM() LIMIT 1''', {'search': '%' + search + '%'})
     movies = searched_movies.fetchall()
     db.close()
     return movies

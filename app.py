@@ -16,6 +16,11 @@ def start():
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     @app.route('/')
+    def starting():
+        movies = db.get_movies(DATABASE_URL)
+        return render_template('start.html', movies=movies)
+
+    @app.route('/index')
     def index():
         movies = db.get_movies(DATABASE_URL)
         return render_template('index.html', movies=movies)
@@ -77,11 +82,37 @@ def start():
         movies = db.get_movies(DATABASE_URL)
         return render_template('index.html', movies=movies)
 
-    @app.route('/search', methods=['POST'])
-    def movies_search_by_tags():
-        search = request.form.get("action")
+    @app.route('/tags/action', methods=['GET'])
+    def movies_search_by_tags_action():
+        search = 'action'
         results = db.search_movies_by_tags(DATABASE_URL, search)
         return render_template('movie-search.html', movies=results, search=search)
+
+    @app.route('/tags/comedy', methods=['GET'])
+    def movies_search_by_tags_comedy():
+        search = 'laught'
+        results = db.search_movies_by_tags(DATABASE_URL, search)
+        return render_template('movie-search.html', movies=results, search=search)
+
+    @app.route('/tags/scary', methods=['GET'])
+    def movies_search_by_tags_scary():
+        search = "scary"
+        results = db.search_movies_by_tags(DATABASE_URL, search)
+        return render_template('movie-search.html', movies=results, search=search)
+
+    @app.route('/tags/sci-fi', methods=['GET'])
+    def movies_search_by_tags_scifi():
+        search = "sci-fi"
+        results = db.search_movies_by_tags(DATABASE_URL, search)
+        return render_template('movie-search.html', movies=results, search=search)
+
+    @app.route('/tags/animation', methods=['GET'])
+    def movies_search_by_tags_animation():
+        search = "animation"
+        results = db.search_movies_by_tags(DATABASE_URL, search)
+        return render_template('movie-search.html', movies=results, search=search)
+
+
 
 
     # @app.route('/upload')

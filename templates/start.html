@@ -21,35 +21,46 @@
 </audio>
 <div style="position:relative;">
     <div style="margin: 400px 0 10px 1000px; display:block; position:fixed;">
-        <button href="{{ url_for('movies_search_by_tags') }}" style="width:180px;height:100px" title="action">Action
+        <a href="{{ url_for('movies_search_by_tags_action') }}" class="btn btn-primary">
+        <button style="width:180px;height:100px" name="action" title="action" value="action">Action
         </button>
+        </a>
     </div>
 </div>
 <div style="position:relative;">
     <div style="margin: 400px 0 10px 800px; display:block; position:fixed;">
-        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="comedy">Comedy</button>
+        <a href="{{ url_for('movies_search_by_tags_comedy') }}" class="btn btn-primary">
+        <button style="width:180px;height:100px" name="comedy" title="comedy">Comedy</button>
+        </a>
     </div>
 </div>
 <div style="position:relative;">
     <div style="margin: 400px 0 10px 600px; display:block; position:fixed;">
-        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="scary">Scary</button>
+        <a href="{{ url_for('movies_search_by_tags_scary') }}" class="btn btn-primary">
+        <button style="width:180px;height:100px" name="scary" title="scary">Scary</button>
+        </a>
     </div>
 </div>
 <div style="position:relative;">
     <div style="margin: 400px 0 10px 400px; display:block; position:fixed;">
-        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="sci-fi">Sci-Fi</button>
+        <a href="{{ url_for('movies_search_by_tags_scifi') }}" class="btn btn-primary">
+        <button style="width:180px;height:100px" name="sci-fi" title="sci-fi">Sci-Fi</button>
+        </a>
     </div>
 </div>
 <div style="position:relative;">
     <div style="margin: 400px 0 10px 200px; display:block; position:fixed;">
-        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="animation">Animation</button>
+        <a href="{{ url_for('movies_search_by_tags_animation') }}" class="btn btn-primary">
+        <button style="width:180px;height:100px" name="animation" title="animation">Animation</button>
+        </a>
     </div>
 </div>
 <div style="position:relative;">
     <div style="margin: 400px 0 10px 0; display:block; position:fixed;">
-        <form action="index.html">
-        <button href="{{ url_for('index') }}" style="width:180px;height:100px" title="all movies">All movies</button>
-    </form>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">
+            <button style="width:180px;height:100px" title="all movies">All movies
+            </button>
+        </a>
     </div>
 </div>
 {#<script>function upload() {#}
